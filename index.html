@@ -1,0 +1,262 @@
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>4Band_resister</title>
+ <style type="text/css">
+ @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Changa:wght@300&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap');
+ body{
+  /* background-image: url('https://wallpapershome.com/images/pages/pic_h/6592.jpg');*/
+   background-size: cover;
+   background-image: linear-gradient(to bottom,#455a64 ,#000000);
+   background-position: center center;
+   background-attachment: fixed;
+   overflow:inherit;
+ }
+
+ h1{
+     text-align:center;
+     margin:0%;
+     font-family: 'Julius Sans One', sans-serif;
+     color:#ffffff;
+     font-size:400%;
+     background-color:#c4d0d6;
+     border-radius: 10px;
+     height: 100px;
+     background-image: linear-gradient(to left,#0288d1,#00bfa5,#1de9b6 );
+     box-shadow: 7px 7px 9px #000000;
+     text-shadow: 2px 2px 4px #000000;
+ }
+ h3{
+   margin-left: 40%;
+   margin-right: 40%;
+   font-family: 'Alegreya Sans SC', sans-serif;
+   font-size: 150%;
+   color:white;
+   text-shadow: 2px 2px 4px #3a3939;
+ }
+ #emid{
+ font-size:50%;
+ font-family:;
+ }
+
+
+
+
+.colors{
+margin-left:22%;
+margin-right: 22%; 
+margin-top:3%;
+box-shadow: 5px 5px 10px #000000;
+border-bottom-left-radius: 10px;
+border-top-left-radius: 10px;
+
+}
+
+#black,#brown,#red,#orange,#yellow,#green,#blue,#violet,#grey,#white,#gold,#silver,#nocolor{
+  display:inline-block;
+  float:left;
+  font-family:'PT Sans Narrow', 'sans-serif';
+  height:10vh;
+  width:60px;
+  text-align:center;
+  padding-top: 10vh;
+  color:#d3d3d3;
+  text-shadow: 1px 1px #000000;
+  transition: width 2s, height 2s;
+  transition-duration: 0.5s;
+  
+ 
+}
+#black{
+
+  background:black;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+   
+}
+#brown{
+  background:#8d6e63
+}
+#red{
+  background:#f44336;
+  
+}
+#orange{
+  background:#ff9800;
+}
+#yellow{
+  background:#ffff00 ;
+}
+#green{
+  background:#00e676;
+}
+#blue{
+background:#039be5 ;
+}
+#violet{
+  background:#304ffe;
+}
+#grey{
+  background:#455a64;
+}
+#white{
+  background:white;
+ 
+}
+#gold{
+    background: gold;
+}
+#silver{
+    background: silver;
+}
+
+#nocolor{
+  background: snow;
+  border-bottom-right-radius: 10px;
+border-top-right-radius: 10px;
+}
+#gold,#silver,#nocolor{
+    display: inline-block;
+    float: left;
+    
+
+}
+.colors,.selection{
+  display:inline-block;
+}
+#selecting{
+  
+  float: left;
+  
+}
+
+button{
+  margin-left:43.5%;
+  margin-right:43%;
+  margin-top: 5%;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  height: 35px;
+  box-shadow: 3px 2px 2px bl;
+  font-family: 'Lexend Exa', sans-serif;
+  background-image: linear-gradient(to left,#1de9b6,#00b0ff);
+  
+}
+
+/*Actions onHover*/
+
+#black:hover,#brown:hover,#red:hover,#orange:hover,#yellow:hover,#green:hover,#blue:hover,#violet:hover,#grey:hover,#white:hover,#gold:hover,#silver:hover,#nocolor:hover{
+width: 80px;
+animation:font_animation 0.5s;
+animation-fill-mode: forwards;
+}
+
+
+
+button:hover{
+  background-color:#ffffff;
+  font-style: italic;
+}
+
+footer{
+  margin-left:43%;
+  margin-right: 43%;
+  margin-top:10%;
+  color:rgb(255, 255, 255);
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+@keyframes font_animation {
+    from{font-size:100%; }
+    to{font-size: 120%;}
+    
+}
+
+  
+
+
+ </style>
+ <script type="text/javascript">
+ //count is used to keep track of number of selected colors
+ var count = 0;
+ var arr = new Array(4);
+ function msg() {
+    alert('This site is only designed for 16:9 monitors!Some functions may not work on other devices');
+  }
+
+ function calcu(val){
+       if(count<3){
+     switch(count){
+         case 0:arr[count]=val*10;break;
+         case 1:arr[count]=arr[count-1]+val;break;
+         case 2:arr[count]=arr[count-1]*Math.pow(10,val); break;
+         
+   
+      }
+    }
+    else{
+    switch(val){
+    case 50:arr[count]=arr[count-1]+'+/-5% Ω';break;
+    case 100: arr[count] = arr[count - 1] + '+/- 10% Ω';break;
+    case 200: arr[count] = arr[count - 1] + '+/-20% Ω';break;
+    default:alert('Fourth color should be gold/silver/no color');count-=1;break;
+
+    }
+
+    }
+     //displaying n th color to be selected 
+   switch (count) {
+     case 0: document.getElementById('selecting').innerHTML = "Select second color"; break;
+     case 1:document.getElementById('selecting').innerHTML="Select the third color";break;
+     case 2:document.getElementById('selecting').innerHTML="Select the fourth color";break;
+   }
+     count+=1;
+
+
+ }
+
+ function display()
+ {
+   if(count==4){
+   alert(arr[count-1]);
+   }
+   else
+   alert('ERROR!you need to select 4 colors');
+
+   count=0;
+   document.getElementById('selecting').innerHTML="Select the first color";
+ }
+ 
+   
+ </script>
+
+ 
+  </head>
+  <body onload="msg()">
+  <h1>Resistance Calculator<em id="emid">4bands</em></h1>
+  <h3 id="selecting">Select the first Color</h3>
+
+  <section class="colors">
+  <div id="black"   onclick="calcu(0)"  >Black</div>
+  <div id="brown"   onclick="calcu(1)"   >Brown</div>
+  <div id="red"     onclick="calcu(2)"   >Red</div>
+  <div id="orange"  onclick="calcu(3)"   >Orange</div>
+  <div id="yellow"  onclick="calcu(4)"   >Yellow</div>
+  <div id="green"   onclick="calcu(5)"   >Green</div>
+  <div id="blue"    onclick="calcu(6)"   >Blue</div>
+  <div id="violet"  onclick="calcu(7)"   >Violet</div>
+  <div id="grey"    onclick="calcu(8)"   >Grey</div>
+  <div id="white"   onclick="calcu(9)"   >White</div>
+  <div id="gold"    onclick="calcu(50)"  >Gold</div>
+  <div id="silver"  onclick="calcu(100)" >Silver</div>
+  <div id="nocolor" onclick="calcu(200)" >No color</div>
+  </section>
+  <button onclick="display()">CALCULATE</button>
+  <footer>By Abhilash Hegde</footer><
+  </body>
+</html>
